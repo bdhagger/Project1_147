@@ -8,10 +8,13 @@ function setup() {
   fill(51, 153, 102);
   rect(-10, 600,860, 600);
 
+  //individual grass
   drawGrass();
 }
+//============================================
 
 function draw(){
+  //flags and strings
   drawStrings();
 
   //yellow body
@@ -52,10 +55,13 @@ function draw(){
   rect(260,596,146,50);
   pointsText();
 
+  //interactive puck
   drawPuck();
 
 }
+//============================================
 
+//draws height lines
 function drawlines(){
   stroke(0);
   for(var i = 0; i < 450; i = i + 45){
@@ -63,17 +69,22 @@ function drawlines(){
   }
 }
 
+var num = 0;
+//creates and moves the puck
 function drawPuck(){
   stroke(color(136,137,138));
   fill(color(166,167,178))
   if(mouseIsPressed){
-    if(mouseButton == LEFT){
-        ellipse(332, 561 - 100, 15, 15);
-    }
+        num += 1;
+        ellipse(332, 561 - num, 15, 15);
   }
-   else ellipse(332, 561, 15, 15);
+   else{
+     num = 0;
+     ellipse(332, 561, 15, 15);
+   }
 }
 
+//draws indivual grass
 function drawGrass(){
   noFill();
   strokeWeight(3);
@@ -93,6 +104,7 @@ function drawGrass(){
   }
 }
 
+//draws strings and triangle flags
 function drawStrings(){
   noFill();
   stroke(255);
@@ -112,15 +124,47 @@ function drawStrings(){
   }
 }
 
+//places values on machine
 function pointsText(){
+  fill(255);
+
+  //red
+  if(num < 20) fill(241, 136, 113);
   text('100       100', 300, 530);
+
+  //orange
+  if(num < 60) fill(239, 162, 85);
   text('200       200', 300, 485);
+
+  //yellow
+  if(num < 110) fill(243, 230, 77);
   text('300       300', 300, 440);
+
+  //light green
+  if(num < 160) fill(54, 234, 75);
   text('400       400', 300, 395);
+
+  //turquoise
+  if(num < 200) fill(54, 234, 201);
   text('500       500', 300, 350);
+
+  //turquoise
+  if(num < 240) fill(77, 243, 207);
   text('600       600', 300, 305);
+
+  //light blue
+  if(num < 280) fill(77, 210, 243);
   text('700       700', 300, 260);
+
+  //blue
+  if(num < 330) fill(171, 162, 247);
   text('800       800', 300, 215);
+
+  //purple
+  if(num < 370) fill(221, 162, 247);
   text('900       900', 300, 170);
+
+  //pink
+  if(num < 410) fill(238, 162, 247);
   text('1000   1000', 300, 125);
 }
