@@ -1,7 +1,8 @@
+
 function setup() {
   //sky
   createCanvas(680, 680);
-  background('rgba(0,150,255, 0.5)');
+  background(130, 206, 245);
 
   //ground
   noStroke();
@@ -72,16 +73,42 @@ function drawlines(){
 var num = 0;
 //creates and moves the puck
 function drawPuck(){
+  //color the puck
   stroke(color(136,137,138));
   fill(color(166,167,178))
+  if(mouseX > 280 && mouseX < 280 + 105 && mouseY > 570 && mouseY < 570 + 50){
   if(mouseIsPressed){
-        num += 1;
-        ellipse(332, 561 - num, 15, 15);
+        coverWin();
+        //recolor the puck
+        stroke(color(136,137,138));
+        fill(color(166,167,178))
+
+        //move puck up until reaches bell
+        num += PI;
+        if(!(num > 450)){
+            ellipse(332, 561 - num, 15, 15);
+        }
+        else{
+            textSize(45);
+            smooth();
+            fill(255);
+            noStroke();
+            textFont('Palatino');
+            text('You win!', 14, 80);
+        }
+    }
+    else{
+      num = 0;
+      ellipse(332, 561, 15, 15);
+    }
   }
-   else{
-     num = 0;
-     ellipse(332, 561, 15, 15);
-   }
+}
+
+//cover up win screen
+function coverWin() {
+  noStroke();
+  fill(130, 206, 245);
+  rect(0,0,190,85);
 }
 
 //draws indivual grass
@@ -127,6 +154,8 @@ function drawStrings(){
 //places values on machine
 function pointsText(){
   fill(255);
+  textSize(12);
+  textFont('Helvetica');
 
   //red
   if(num < 20) fill(241, 136, 113);
@@ -149,11 +178,11 @@ function pointsText(){
   text('500       500', 300, 350);
 
   //turquoise
-  if(num < 240) fill(77, 243, 207);
+  if(num < 242) fill(77, 243, 207);
   text('600       600', 300, 305);
 
   //light blue
-  if(num < 280) fill(77, 210, 243);
+  if(num < 285) fill(77, 210, 243);
   text('700       700', 300, 260);
 
   //blue
@@ -161,10 +190,10 @@ function pointsText(){
   text('800       800', 300, 215);
 
   //purple
-  if(num < 370) fill(221, 162, 247);
+  if(num < 375) fill(221, 162, 247);
   text('900       900', 300, 170);
 
   //pink
-  if(num < 410) fill(238, 162, 247);
+  if(num < 420) fill(238, 162, 247);
   text('1000   1000', 300, 125);
 }
