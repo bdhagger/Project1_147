@@ -1,3 +1,4 @@
+Barbara Haggerty
 Project1_147
 
 Assignment 1: “Living Paintbrush”
