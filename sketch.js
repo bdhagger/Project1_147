@@ -84,7 +84,7 @@ function drawPuck(){
         fill(color(166,167,178))
 
         //move puck up until reaches bell
-        num += PI;
+        num += PI/10;
         if(!(num > 450)){
             ellipse(332, 561 - num, 15, 15);
         }
