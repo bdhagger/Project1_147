@@ -66,7 +66,12 @@ function drawlines(){
 function drawPuck(){
   stroke(color(136,137,138));
   fill(color(166,167,178))
-  ellipse(332, 561, 15, 15);
+  if(mouseIsPressed){
+    if(mouseButton == LEFT){
+        ellipse(332, 561 - 100, 15, 15);
+    }
+  }
+   else ellipse(332, 561, 15, 15);
 }
 
 function drawGrass(){
@@ -119,11 +124,3 @@ function pointsText(){
   text('900       900', 300, 170);
   text('1000   1000', 300, 125);
 }
-// function draw() {
-//   if (mouseIsPressed) {
-//     fill(0);
-//   } else {
-//     fill(255);
-//   }
-//   ellipse(mouseX, mouseY, 80, 80);
-// }
