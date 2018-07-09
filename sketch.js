@@ -84,8 +84,8 @@ function drawPuck(){
         fill(166,167,178)
 
         //move puck up until reaches bell
-        if(num < 200) num += PI/4;
-        else if(num < 360)num = num + PI/6;
+        if(num < 200) num += PI/5;
+        else if(num < 360)num = num + PI/7;
         else num += PI/9;
 
         if(!(num > 450)){
