@@ -1,4 +1,3 @@
-
 function setup() {
   //sky
   createCanvas(680, 680);
@@ -21,14 +20,15 @@ function draw(){
   //yellow body
   noStroke();
   strokeWeight(4);
-  fill(color(255, 255 , 133));
+  fill(255, 255 , 133);
   rect(280, 90, 95, 505);
 
   //dividing lines
+  strokeWeight(3);
   drawlines();
 
   //side decoration
-  stroke(color(255,78,78));
+  stroke(255,78,78);
   strokeWeight(4);
   rect(280, 90, 15, 505); //left
   rect(370, 90, 15, 505); //right
@@ -51,8 +51,8 @@ function draw(){
   rect(280, 570, 105, 55, 20);
 
   //box
-  stroke(color(255,78,78));
-  fill(color(255, 255, 133));
+  stroke(255,78,78);
+  fill(255, 255, 133);
   rect(260,596,146,50);
   pointsText();
 
@@ -74,17 +74,20 @@ var num = 0;
 //creates and moves the puck
 function drawPuck(){
   //color the puck
-  stroke(color(136,137,138));
-  fill(color(166,167,178))
+  stroke(136,137,138);
+  fill(166,167,178)
   if(mouseX > 280 && mouseX < 280 + 105 && mouseY > 570 && mouseY < 570 + 50){
   if(mouseIsPressed){
         coverWin();
         //recolor the puck
-        stroke(color(136,137,138));
-        fill(color(166,167,178))
+        stroke(136,137,138);
+        fill(166,167,178)
 
         //move puck up until reaches bell
-        num += PI/10;
+        if(num < 200) num += PI/4;
+        else if(num < 360)num = num + PI/6;
+        else num += PI/9;
+
         if(!(num > 450)){
             ellipse(332, 561 - num, 15, 15);
         }
@@ -162,7 +165,7 @@ function pointsText(){
   text('100       100', 300, 530);
 
   //orange
-  if(num < 60) fill(239, 162, 85);
+  if(num < 60) fill(237, 162, 85);
   text('200       200', 300, 485);
 
   //yellow
@@ -170,7 +173,7 @@ function pointsText(){
   text('300       300', 300, 440);
 
   //light green
-  if(num < 160) fill(54, 234, 75);
+  if(num < 158) fill(54, 234, 75);
   text('400       400', 300, 395);
 
   //turquoise
